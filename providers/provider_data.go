@@ -269,7 +269,7 @@ func (p *ProviderData) buildSessionFromClaims(rawIDToken, accessToken string) (*
 
 	var verified bool
 	exists, err := extractor.GetClaimInto("email_verified", &verified)
-	if err != nil {
+	if err != nil && verifyEmail {
 		return nil, err
 	}
 
